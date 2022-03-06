@@ -5,4 +5,15 @@ img {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    border: 5px solid black;
+}
+#readButtons button{
+    display: inline-block;
+}
+#readButtons {
+    text-align: center;
+}
+#readcontainer{
+    padding-bottom: 5px;
+    margin-top: 5px;
 }

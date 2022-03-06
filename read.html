@@ -9,11 +9,13 @@
     
 </head>
 <nav>
-    <a href="index.html"><p>Home</p></a><p>moren din</p>
+    <a href="index.html" class="navelement"><p>Home</p></a>
 </nav>
 <body>
-    <img id="MainImage" src="reader/comics/kanin/kanin_1.png">
-    <button onclick="imageset('add', 1)">Next Image</button>
+    <div id="ReadContainer"><img id="MainImage" src="reader/comics/kanin/kanin_1.png"></div>
+    <div id="readButtons">
+        <button onclick="imageset('add', -1)">Previous Image</button><button onclick="imageset('add', 1)">Next Image</button>
+    </div>
 </body>
 <script src="reader/read.js"></script>
 </html>
