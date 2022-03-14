@@ -35,6 +35,9 @@ a{
     padding: 15px;
     transition-duration: 0.2s;
 }
+.comics {
+    text-align: center;
+}
 a p:hover{
     background-color: rgb(48, 175, 154);
     color: black;
