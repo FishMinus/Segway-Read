@@ -1,8 +1,10 @@
+if (document.cookie=='' || document.cookie == 'NaN') document.cookie = '1';
 const MainImage = document.getElementById("MainImage");
-var currentPage = 1;
+var currentPage = parseInt(document.cookie);
 var lastPagenumber = 0;
 var currentRead = "kanin";
 var OnLastPage = false;
+if (parseInt(document.cookie)>0) MainImage.src = `reader/comics/${currentRead}/${currentRead}_${document.cookie}.png`;
 function imageset(com, page){
     switch(com){
         case "add":
@@ -17,12 +19,13 @@ function imageset(com, page){
     }
     if (currentPage <= 0) currentPage = 1;
     MainImage.src = `reader/comics/${currentRead}/${currentRead}_${currentPage}.png`;
-    if (!OnLastPage) lastPagenumber = Number(String(MainImage.src.split(currentRead+"_")[1]).split(".png")[0])-1;
+    if (!OnLastPage) lastPagenumber = parseInt(String(MainImage.src.split(currentRead+"_")[1]).split(".png")[0])-1;
+    document.cookie = currentPage;
 }
 MainImage.onerror = function() {
     console.log("No more pages/page failed to load")
     MainImage.src = `reader/end.png`;
-    currentPage = lastPagenumber+1;
+    currentPage = lastPagenumber+1; document.cookie = currentPage;
     OnLastPage = true;
     /*currently this cant be set back to false, but it 
     works probably as a check for the last page, which then uses that 
